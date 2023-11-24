@@ -1,0 +1,19 @@
+<template>
+    <div class="container">
+        <textarea
+            class="textarea"
+            placeholder="Speak or type here..."
+            value={text}
+            oninput={handleInputChange}
+        ></textarea>
+        <button class="microphone-button" onclick={startVoiceInput}>
+            <template if:true={isListening}>
+                <lightning-icon icon-name="utility:mic_on"></lightning-icon>
+            </template>
+            <template if:false={isListening}>
+                <lightning-icon icon-name="utility:microphone"></lightning-icon>
+            </template>
+        </button>
+        
+    </div>
+</template>

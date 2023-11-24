@@ -1,0 +1,19 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 06-25-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+  <div class="map" style="width: 100%;background-color:white;overflow:hidden;">
+    <lightning-map
+        map-markers={mapMarkers}
+        zoom-level={zoomLevel}
+        marker-options={markerOptions}
+        markers-title="Client Place"
+        icon-name={LOGO}
+        selected-marker-value={selectedMarkerValue}>
+    </lightning-map>
+  </div>
+</template>

@@ -1,0 +1,111 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 10-26-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <div class="container">
+        <div class="row">
+            <div class="Contact ">
+                <div class="column">
+                    <div class="card">
+                        <p style="color: black;font-weight:bold;padding:10px 1px;">Contacts</p>
+                        <lightning-datatable hide-checkbox-column="true" show-row-number-column="true" onrowaction={handleRowAction} data={displayContactRecords} columns={columns} key-field="Id"></lightning-datatable>
+
+                        <template if:true={hasMoreContactRecords}>
+                            <lightning-button title="Contact" label="View All" onclick={handleViewAll}></lightning-button>
+                        </template>
+                        <!-- <template for:each={contactData} for:item="item">
+                            <li key={item.Id}>
+                                <h1 title={item.Name}>{item.Name}</h1>
+                            </li>
+                        </template> -->
+                    </div>
+                </div>
+            </div>
+            <div class="ServiceItems">
+                <div class="column">
+                    <div class="card">
+                        <p style="color: black;font-weight:bold;padding:10px 1px;">Service Items</p>
+                        <lightning-datatable hide-checkbox-column="true" show-row-number-column="true" onrowaction={handleRowAction} data={displayServiceItemsRecords} columns={columns} key-field="Id"></lightning-datatable>
+
+                        <template if:true={hasMoreServiceItemsRecords}>
+                            <lightning-button class="slds-align_absolute-center slds-p-top_small" title="Service Items" label="View All" onclick={handleViewAll}></lightning-button>
+                        </template>
+
+                        <!-- <template for:each={serviceItemData} for:item="item">
+                            <li key={item.Id}>
+                                <h1 title={item.Name}>{item.Name}</h1>
+                            </li>
+                        </template> -->
+                        <!-- <h3>Service Items</h3> -->
+                    </div>
+                </div>
+            </div>
+            <div class="TimeSheet">
+                <div class="column">
+                    <div class="card">
+                        <p style="color: black;font-weight:bold;padding:10px 1px;">TIme Sheets</p>
+                        <lightning-datatable hide-checkbox-column="true" show-row-number-column="true" onrowaction={handleRowAction} data={displayTimeSheetRecords} columns={columns} key-field="Id"></lightning-datatable>
+                        <template if:true={hasMoreTimeSheetRecords}>
+                            <lightning-button title="TimeSheet" label="View All" onclick={handleViewAll}></lightning-button>
+                        </template>
+
+                        <!-- <template for:each={timeSheetData} for:item="item">
+                            <li key={item.Id}>
+                                <h1 title={item.Name}>{item.Name}</h1>
+                            </li>
+                        </template> -->
+                        <!-- <h3>Time Sheets</h3> -->
+                    </div>
+                </div>
+            </div>
+            <div class="Incident">
+                <div class="column">
+                    <div class="card">
+                        <p style="color: black;font-weight:bold;padding:10px 1px;">Incidents & Complaints</p>
+                        <lightning-datatable hide-checkbox-column="true" show-row-number-column="true" onrowaction={handleRowAction} data={displayIncidentRecords} columns={columns} key-field="Id"></lightning-datatable>
+                        <template if:true={hasMoreIncidentRecords}>
+                            <lightning-button title="Incident" label="View All" onclick={handleViewAll}></lightning-button>
+                        </template>
+                        <!-- <template for:each={incidentsData} for:item="item">
+                            <li key={item.Id}>
+                                <h1 title={item.Name}>{item.Name}</h1>
+                            </li>
+                        </template> -->
+                        <!-- <h3>Incidents</h3> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <template if:true={isModalOpen}>
+            <!-- Modal/Popup Box LWC starts here -->
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- Modal/Popup Box LWC header here -->
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                            <lightning-icon icon-name="utility:close"
+                                alternative-text="close"
+                                variant="inverse"
+                                size="small" ></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Modal/PopUp Box header LWC</h2>
+                    </header>
+                    <!-- Modal/Popup Box LWC body starts here -->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <lightning-datatable hide-checkbox-column="true" show-row-number-column="true" onrowaction={handleRowAction} data={clientResponseData} columns={col} key-field="Id"></lightning-datatable>
+                    </div>
+                    <!-- Modal/Popup Box LWC footer starts here -->
+                    <footer class="slds-modal__footer">
+                        <button class="slds-button slds-button_brand" onclick={handleCloseModalPopup} title="Close">Close</button>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+    </div>
+</template>

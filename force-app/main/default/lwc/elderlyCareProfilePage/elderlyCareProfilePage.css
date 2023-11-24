@@ -1,0 +1,48 @@
+.card-img-top {
+    border-radius: 50%;
+    width: 40%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    
+}
+.card-header{
+    padding: 1.5em 0.5em 0.5em;
+    text-align: center;
+    border-radius: 2em;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.card {
+    padding: 1.5em 0.5em 0.5em;
+    text-align: center;
+    border-radius: 2em;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  .card-title {
+    color:black;
+    text-align: left;
+    font-weight: bold;
+    font-size: 1em;
+    padding: 4px;
+  }
+  .card-label{
+    padding: 0.5em 0.5em 0.5em;
+    color:gray;
+    text-align: left;
+  }
+  .left{
+    width: 24%;
+    padding: 4px;
+  }
+  .column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+  }
+  .newbtn{
+    position: absolute;
+    right: 24px;
+    padding: 4px;
+}
+.formcont{
+    width: 100%;
+    padding: 6px;
+}

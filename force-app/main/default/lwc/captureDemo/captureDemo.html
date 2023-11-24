@@ -1,0 +1,39 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-31-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <div class="slds-align_absolute-center">
+        <div class="functionbutton">
+            <div class="slds-align_absolute-center">
+                <div class="camerabutton slds-m-around_xx-small">
+                    <template if:true={isStartVideoButton}>
+                        <lightning-button-icon label=""   variant="brand" icon-name="action:add_photo_video" class="slds-m-left_xx-small slds-icon slds-icon_large" onclick={initCamera}></lightning-button-icon>
+                    </template>
+                    <!-- <template if:true={isStopVideoButton}>
+                        <lightning-button label="" icon-name="standard:photo" class="slds-m-left_xx-small" onclick={stopCamera}></lightning-button>
+                    </template> -->
+                    <template if:true={isCaptureButton}>
+                        <lightning-button label="upload" icon-name="action:upload" class="slds-m-left_xx-small slds-icon slds-icon_large" onclick={captureImage}></lightning-button>
+                    </template>
+                    <lightning-button label="Stop Video" class="slds-m-left_xx-small" onclick={stopCamera}></lightning-button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <template if:true={showImagePlace}>
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col">
+                <video class="videoElement slds-m-around_xx-small" style="width:70%;" autoplay></video>
+                <canvas class="slds-hide canvas"></canvas>
+            </div>
+            <div class="slds-col slds-m-around_xx-small" style="width:70%;">
+                <img src="" class="slds-hide imageElement" alt="captured image"/>
+            </div>
+        </div>
+    </template>
+    
+</template>

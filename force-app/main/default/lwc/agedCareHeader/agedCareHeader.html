@@ -1,0 +1,35 @@
+<template>
+    <lightning-card>
+    <div class="container">
+        <div class="section" style="border-right: 1px solid #1f1717;">
+            <!-- First Section Content -->
+            <h2>Client Details</h2>
+            <ul>
+                <li>&emsp;  <img src={accImage} alt={Name} class="clientprofile" height="100px" width="100px"/>
+                </li>
+                <li> Name   : {Name}</li>
+                <li> Phone  : {phone}</li>
+                <li> Gender : {gendar}</li>
+                <li> Street : {Street}</li>
+                <li> City   :   {City}</li>
+                <li> State  :  {State}</li>
+                <li>Country :    {Country}</li>
+                <li> DOB    : {dob}</li>
+                <li> Age    : {age}</li>
+                <li> Relation : {reports}</li>
+               <!-- <li>Selected Services : {SelectedService}</li>-->
+                
+               
+                
+                <!-- <li> Service Package :  {package}</li> -->
+             
+             </ul>
+        </div>
+        <div class="section">
+            <!-- Second Section Content -->
+            <h2>Selected Services</h2>
+            <p>This is the content of section 2.</p>
+        </div>
+    </div>
+</lightning-card>
+</template>

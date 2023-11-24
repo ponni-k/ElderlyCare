@@ -1,0 +1,147 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 10-04-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    
+    
+    <!-- <template if:true={isNoProgreeeData}> -->
+        <div class="createProgress">
+            <lightning-card title="Progress Notes" icon-name="custom:custom30">
+                <div class="c-container"> 
+                    <div class="progressNotes"> 
+                        <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+                            Progress Notes
+                        </h2>
+                        <div class="container">
+                            <div class="slds-grid slds-gutters slds-p-around_x-small">
+                                <div class="slds-col">
+                                    <!-- <lightning-input class={inputClass} name="enter-search" label="Time Sheet" value={timeSheetName} type="text" disabled></lightning-input> -->
+                                    <div class="labelname">
+                                        <h1>Time Sheet</h1>
+                                    </div>
+                                    <input type="text"  style="color:deeppink" value={timeSheetName}  class="slds-input lgc-bg custom-text-color" disabled/>
+                                </div>
+                                <div class="slds-col">
+                                    <!-- <lightning-input class={inputClass} name="enter-search" label="Carer Name" type="text" value={carerName} disabled></lightning-input> -->
+                                    <div class="labelname">
+                                        <h1>Carer Name</h1>
+                                    </div>
+                                    <input type="text" style="color:deeppink"  value={carerName} class="slds-input lgc-bg custom-text-color" disabled />
+                                </div>
+                            </div>
+                            <div class="slds-grid slds-gutters slds-p-around_x-small">
+                                <div class="slds-col">
+                                    <!-- <lightning-input class={inputClass} name="enter-search" label="Client Name" type="text" value={clientName} disabled></lightning-input> -->
+                                    <div class="labelname">
+                                        <h1>Client Name</h1>
+                                    </div>
+                                    <input type="text" style="color:deeppink"  value={clientName} class="slds-input lgc-bg custom-text-color" disabled/>
+                                </div>
+                                <div class="slds-col">
+                                    <!-- <lightning-input class={inputClass} name="enter-search" label="Service Name" type="text" value={serviceName} disabled></lightning-input> -->
+                                    <div class="lebalename">
+                                        <h1>Service Name</h1>
+                                    </div>
+                                    <input type="text" style="color:deeppink"  value={serviceName} class="slds-input lgc-bg custom-text-color" disabled/>
+                                </div>
+                               
+                            </div>
+                            <div class="slds-m-around_x-small">
+                                <div class="labelname">
+                                    <h1>Duty Progress</h1>
+                                </div>
+                                <lightning-combobox
+                                    name="Duty Progress"
+                                    value={dutyProgressStatus}
+                                    placeholder="Select Status"
+                                    options={dutyProgressOptions}
+                                    onchange={handleDutyProgress} ></lightning-combobox>
+                            </div>
+                            <div class="input-container slds-m-around_x-small">
+                                <!-- <lightning-input-rich-text type="text" label="Services"  onchange={handleServiceDescription} required></lightning-input-rich-text> -->
+                                <div class="labelname">
+                                    <h1>Service Description</h1>
+                                </div>
+                                <!-- <c-web-speech-api-input class='custom-button' min-height="200" show-toast-on-error="true" language={language} onchangevalue={handleInputChange}></c-web-speech-api-input> -->
+
+                                <!-- <lightning-formatted-rich-text ></lightning-formatted-rich-text> -->
+                                <c-web-speech-api-input min-height="200"  show-toast-on-error="true" language={language} onchangevalue={handleInputChange}></c-web-speech-api-input>
+                                <!-- <div>
+                                    <p>Input value : {value}</p>
+                                </div> -->
+                            </div>
+                        </div> 
+                        <div class="checklist">
+                            <c-elderly-care-updatable-checklist onchecklistvaluechange={handleChecklistValues}></c-elderly-care-updatable-checklist></br>
+                            </div>   
+                        <!-- <div class="digitalsignature">
+                            <c-signature oncanvaschange={handleCanvasChange}></c-signature>
+                        </div> -->
+                        <div class="labelname">
+                            <h1>Client Signature </h1>
+                        </div>
+                        <div class="digitalsignature">
+                            <c-signature-capture oncanvaschange={handleCanvasChange}></c-signature-capture>
+                        </div>
+                        
+                        <p class="slds-m-bottom_small slds-align_absolute-center"> 
+                                <lightning-button variant="brand" label="Save" title="Save" 
+                                onclick={handleSaveProgresNotes} class="slds-m-left_x-small"></lightning-button>
+
+                            <lightning-button variant="destructive" label="Clear" title="Clear" 
+                                onclick={handleClearClick} class="slds-m-left_x-small"></lightning-button>
+                        </p>
+                    </div>       
+                </div>
+            </lightning-card>
+        </div>
+    <!-- </template> -->
+    <!-- <template if:true={isProgrogressNotesData}> -->
+        <div class="retriveProgress">
+            <lightning-card title="Capture Image" icon-name="action:add_photo_video">
+                <div class="uploadimage slds-m-around_xx-small">
+                    <template if:true={isStartVideoButton}>
+                        <lightning-button-icon title="Click to Capture" label="Click to Capture Image"   variant="brand" icon-name="action:add_photo_video" class="slds-m-left_xx-small slds-icon slds-icon_large" onclick={initCamera}></lightning-button-icon>
+                    </template>
+                    <template if:true={isCaptureButton}>
+                        <lightning-button label="Capture" icon-name="action:upload" class="slds-m-left_xx-small slds-icon slds-icon_large" onclick={captureImage}></lightning-button>
+                    </template>
+                    <!-- <lightning-button label="Stop Video" class="slds-m-left_xx-small" onclick={stopCamera}></lightning-button> -->
+                    <template if:true={isStopButton}>
+                        <lightning-button-icon title="Close Capture" label="Close Camera"   variant="destructive" icon-name="action:close" class="slds-m-left_xx-small slds-icon slds-icon_large" onclick={stopCamera} disabled={isCameraBtn}></lightning-button-icon>
+                    </template>
+                    <!-- <div class="slds-m-horizontal_medium">
+                        <c-web-speech-api-input min-height="200" input-label="Voice Recognition" show-toast-on-error="true" language={language} onchangevalue={handleInputChange}></c-web-speech-api-input>
+                        <div>
+                            <p>Input value : {value}</p>
+                        </div>
+                    </div> -->  
+                </div>
+            </lightning-card>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col">
+                    <video class="videoElement slds-m-around_xx-small" style="width:70%;" autoplay></video>
+                    <canvas class="slds-hide canvas"></canvas>
+                </div>
+                <div class="slds-col slds-m-around_xx-small" style="width:100%;">
+                    <img src="" class="slds-hide imageElement" alt="captured image"/>
+                </div>
+            </div>
+            <template if:true={showImageTitle}>
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col">
+                        <lightning-input label="Title" type="text" onchange={handleTitle} placeholder="Enter Image Title" required></lightning-input>
+                    </div>
+                    <div class="slds-col">
+                        <lightning-input label="Description" type="text" onchange={handleDescription} placeholder="Enter Description" required></lightning-input>
+                    </div>
+                    <lightning-button-icon style="margin-top: 24px;" title="Save Capture Image" label=""   variant="brand" icon-name="utility:save" class="slds-m-left_xx-small slds-icon slds-icon_large" onclick={handleSaveImage}></lightning-button-icon>
+                </div>
+            </template> 
+        </div>
+    <!-- </template> -->
+</template>

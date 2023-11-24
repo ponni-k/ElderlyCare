@@ -1,0 +1,79 @@
+/* lwcForEachExample.css */
+.card-container {
+     display: block;
+    
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+.cardleft{
+    width: 26%;
+    font-weight: bold;
+    font-size:16px;
+}
+.cardright{
+    width: 74%;
+    font-size: 16px;
+
+}
+
+.card-header {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.card-body {
+    color: #666;
+}
+.serviceHeading{
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.lgc-bg {
+    background-color: rgb(242 242 242);
+    /* width: 100%; */
+}
+
+.lgc-bg-inverse {
+    background-color: rgb(22 50 92);
+}
+.slds-item{
+    padding: 5px;
+    color: white;
+}
+.slds-list{
+    margin: 4px;
+    /* display: flex; */
+    /* grid-template-columns: auto auto auto; */
+    background-color: rgb(22 50 92);
+    padding: 10px;
+}
+.feedbackcontainer{
+    display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* grid-template-rows: repeat(3, 100px); */
+    /* height: 100vh;
+    overflow: scroll */
+}
+.slds-truncate{
+    color: black;
+    font-weight: bold;
+}
+
+.cardcontainer{
+    display: flex;
+    background-color: rgb(22 50 92);
+    justify-content:space-between;
+}
+svg {
+    display: none;
+}

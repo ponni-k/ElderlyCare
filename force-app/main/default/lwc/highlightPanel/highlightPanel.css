@@ -1,0 +1,170 @@
+*{
+  margin: 0;
+  padding: 0;
+  
+}
+ul{
+  column-count: 8;
+  list-style-type: none;
+  column-gap: 20px;
+ 
+}
+.slds-card-header{
+  background-color: rgb(131, 189, 220);
+  height: 1cm;
+  width: 100%;
+}
+.clientprofile{
+  border-radius: 40%;
+}
+
+.myhighlightComponent {
+  background-color: #ed9696;
+  width: 100%;
+}
+li{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.main{
+  display: flex;
+  padding-left: 10px;
+}
+.mainheading{
+  margin-top: 15px;
+  margin-left: 5px;
+  color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 13px;
+}
+.heading{
+  padding: 3px;
+}
+
+/* Client Related List ccs */
+.mySidenav lightning-button {
+  position: fixed;
+  /* top: 5px; */
+  right: -156px;
+  z-index: 5;
+  transition: 0.3s;
+  padding: 5px;
+  width: 200px;
+  text-decoration: none;
+  font-size: 15px;
+  color: white;
+  border-radius: 0 5px 5px 0;
+  margin-top: 210px;
+}
+
+.mySidenav lightning-button:hover {
+  right: -70px;
+  cursor: pointer;
+}
+
+.about {
+  top: 20px;
+  --slds-c-button-brand-color-background:#04AA6D;
+  /* background-color: #04AA6D; */
+}
+
+.blog {
+  top: 80px;
+  --slds-c-button-brand-color-background:#2196F3;
+  /* background-color: #2196F3; */
+}
+
+.projects {
+  top: 140px;
+  --slds-c-button-brand-color-background:#f44336;
+  /* background-color: #f44336; */
+}
+
+.contact {
+  top: 200px;
+  --slds-c-button-brand-color-background:#555;
+  /* background-color: #555 */
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+.container1 {
+  display: flex;
+}
+
+.section1 {
+  flex: 1;
+  padding: 16px;
+  box-sizing: border-box;
+}
+.package-level{
+  display: flex;
+  justify-content: left;
+}
+
+.h2-container {
+  display: flex;
+  justify-content: left;
+}
+.totalprice{
+  display: flex;
+  justify-content: left;
+}
+
+h2 {
+  margin: 0 20px; 
+}
+ul{
+  column-count: 4;
+  list-style-type: style type; 
+  column-gap: 30px;
+}
+.selectedItemUl{
+    column-count: 4;
+    list-style-type: style type; 
+    column-gap: 30px;
+    list-style: disc;
+}
+.slds-card-header{
+    background-color: rgb(131, 189, 220);
+    height: 1cm;
+    width: 100%;
+}
+.clientprofile{
+   border-radius: 50%;
+   
+}
+
+.myhighlightComponent {
+    background-color: #ed9696;
+    width: 100%;
+  }
+  li{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+  }
+  li:hover {
+    cursor: grab;
+  }
+  hr {
+    border: none;
+    border-top: 1px dotted #f00;
+    color: #fff;
+    background-color: #fff;
+    height: 1px;
+    width: 50%;
+  }
+  .vertical {
+    border-left: 6px solid black;
+    height: 50px;
+    position:absolute;
+    left: 50%;
+}
+.verticalLine {
+    height: 50px;
+    border-left: thick solid #ff0000;
+  }

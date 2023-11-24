@@ -1,0 +1,13 @@
+li {
+    font:
+      1rem 'Fira Sans',
+      sans-serif;
+    margin-bottom: 0.5rem;
+    border-left: 1cap;
+    list-style: decimal;
+  }
+  .checklist{
+    list-style: decimal;
+     padding-left: 10%; 
+  }
+ 

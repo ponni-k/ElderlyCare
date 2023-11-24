@@ -1,0 +1,106 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 09-29-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <div class="card-container">
+        <div class="serviceHeading">
+            <h1 style="font-family: sans-serif;background-color: #f2f2f2;padding: 9px;">Give your Valuable Feedback for Services</h1>
+        </div>
+        <div class="slds-p-around_medium lgc-bg">
+            
+            <ul class="slds-has-dividers_bottom-space">
+                <li class="slds-item">
+                    <lightning-tile>
+                        <p class="slds-truncate" title="7 Members">Total Services : {servicecount}</p>
+                    </lightning-tile>
+                </li>
+                <div class="feedbackcontainer">
+                    <template for:each={feedback} for:item="eventDetails">
+                        <ul class="slds-list" key={eventDetails.Id}>
+                            <!-- <li class="slds-item">{eventDetails.TimesheetName}</li> -->
+                            <!-- <li class="slds-item">{eventDetails.timeSheetFeedBack}</li> -->
+                            <li style="display: flex;width:100%;" class="slds-item">
+                                <div class='cardleft'>
+                                    Subject
+                                </div>
+                                <div class="cardright">
+                                    : {eventDetails.eventSubject}
+                                </div>
+                            </li>
+                            <li style="display: flex;width:100%;" class="slds-item">
+                                <div class='cardleft'>
+                                    Carer Name 
+                                </div>
+                                <div class="cardright">
+                                    : {eventDetails.OwnerName}
+                                </div>
+                                 
+                            </li>
+                            <li style="display: flex;width:100%;" class="slds-item">
+                                <div class='cardleft'>
+                                    Service Name
+                                </div>
+                                <div class="cardright">
+                                    : {eventDetails.ServiceName}
+                                </div>
+                            </li> 
+                            <li style="display: flex;width:100%;" class="slds-item">
+                                <div class='cardleft'>
+                                    Status 
+                                </div>
+                                <div class="cardright">
+                                    : {eventDetails.Status}
+                                </div>
+                            </li>
+                            <!-- <li class="slds-item">{eventDetails.feedBackName}</li> -->
+                            <div class="submitbutton">
+                                <lightning-button value={eventDetails.Id} variant="brand" label="Submit FeedBack" onclick={handleCreateFeedBack} disabled={eventDetails.timeSheetFeedBack}></lightning-button> 
+                            </div>
+                        </ul>
+                    </template> 
+                </div> 
+            </ul>
+        </div>
+    </div>
+    <template if:true={isModalOpen}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close"
+                            alternative-text="close"
+                            variant="inverse"
+                            size="small" ></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">FeedBack</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    
+                    <div class="slds-p-around_medium lgc-bg">
+                        <lightning-tile label="Service Rating" type="media">
+                            <lightning-avatar slot="media"
+                                src="https://us.123rf.com/450wm/theblackrhino/theblackrhino1410/theblackrhino141000154/33177495-stock-vector-yellow-generic-food-package-over-blue-background.jpg?ver=6"
+                                fallback-icon-name="standard:person_account" alternative-text="Packaging"></lightning-avatar>
+                            <c-rating-cmp name='Package' onmessageevent={handleMessage}></c-rating-cmp>
+                            <!-- received : {receivedMessage} -->
+                        </lightning-tile>
+                        <!-- <lightning-button label="Submit" onclick={showRating}> </lightning-button> -->
+                    </div>
+                    <div class="inp">
+                        <lightning-textarea name="input1" label="Feedback Comments" placeholder="Please Enter your Comments..." onchange={handleComments}></lightning-textarea>
+                    </div>
+                </div>
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral" onclick={handleCloseFeedbackForm} title="Cancel">Cancel</button>
+                    <button class="slds-button slds-button_brand" onclick={handleSubmitFeedBack} title="OK">Save</button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

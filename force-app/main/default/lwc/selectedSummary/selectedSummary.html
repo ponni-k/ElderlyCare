@@ -1,0 +1,131 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 05-25-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+
+      <div class="container" style="border-style: solid;border-color: lightgray"> 
+        <lightning-card title="Selected Features" icon-name="utility:salesforce1" class="my-icon">
+          
+        <div class="selectedSummary">
+            <div class="datatable">
+                <lightning-datatable 
+                    data={summaryList}
+                    columns={col}
+                    key-field="id" 
+                    show-row-number-column 
+                    onrowaction={handleRowAction}
+                    onrowselection={handleRowSelection}
+                    >
+                </lightning-datatable>
+             </div>
+            </div>
+        <div class="datatablebutton slds-align_absolute-center">
+            <div>
+                <img class="handpoint" src={handpoint}   /> 
+            </div>
+            
+            <div class="btn1">
+                <lightning-button variant="brand-outline" label="Send us- we'll advice " title="Primary action" onclick={handleSaveRecords} class="slds-m-left_x-small"></lightning-button>
+            </div>
+            <div class="btn1">
+                <lightning-button variant="brand-outline" label="Remove Selected" title="Primary action" onclick={handleRemoveSelection} class="slds-m-left_x-small"></lightning-button>
+            </div>
+            <!--<div class="btn1">
+                <lightning-button variant="destructive-text" label="Reset" title="Destructive action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+            </div>-->
+        </div>
+     </lightning-card>    
+   </div>  
+
+    <!-- Modal/Popup Box LWC to collect lead data  -->
+     <div class="modalPopUp"> 
+        <template if:true={isModalOpen}>
+            <!-- Modal/Popup Box LWC starts here -->
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                            <lightning-icon icon-name="utility:close"
+                                alternative-text="close"
+                                variant="inverse"
+                                size="small" ></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        
+                    <div class="slds-modal__header">
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate" style="color:rgb(18, 65, 194)">We will support you, for y(our) success</h2>
+                    </div>
+              
+                    <!-- Modal/Popup Box LWC body starts here -->
+                    <div class="slds-modal__content slds-p-around_medium modalBodySpinner" id="modal-content-id-1">
+                        <template if:true={showLoading}>
+                            <lightning-spinner alternative-text="Loading" size="medium" class="spinnerClass"></lightning-spinner>
+                        </template>
+                        <div class="slds-grid slds-gutters">
+                            <div class="slds-col">
+                               <lightning-textarea  label="Approximate Estimation" style="color:rgb(206, 19, 206);font-weight: bold" value={descriptionValue} disabled ></lightning-textarea>
+                            </div>
+                          </div>
+                         
+                        <div class="slds-form" role="list">
+                            <div class="slds-form__row">
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_horizontal slds-is-editing">
+                                        <lightning-combobox
+                                        name="Salutation"
+                                        label="Salutation"
+                                        value={value}
+                                        onchange={handleSalutaionValue}
+                                        options={statusOptions}></lightning-combobox>
+                                    </div> 
+                                </div>  
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_horizontal slds-is-editing">
+                                        <lightning-input label="First Name" type="text" value={Name} onchange={handleFirstChange} required ></lightning-input>
+                                    </div> 
+                                </div>  
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_horizontal slds-is-editing">
+                                       <lightning-input type="text" label="Last Name" onchange={handleLastNameChange} required></lightning-input>
+                                    </div> 
+                                </div>  
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_horizontal slds-is-editing">
+                                        <lightning-input label="Company" type="text" onchange={handleCompanyChange} required></lightning-input>
+                                    </div> 
+                                </div>  
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_horizontal slds-is-editing">
+                                        <lightning-input type="email" label="Email" onchange={handleEmailChange} required> </lightning-input>
+                                    </div> 
+                                </div>  
+                                <div class="slds-form__item" role="listitem"> 
+                                    <div class="slds-form-element slds-form-element_horizontal slds-is-editing">
+                                        <lightning-input type="Phone" label="Phone" value={phoneva} onchange={handlePhoneChange} > </lightning-input>
+                                        <p if:true={isPhoneNumberValid} class="slds-text-color_success">Phone number is valid</p>
+                                        <p if:false={isPhoneNumberValid} class="slds-text-color_error" style="color:blue">valid phone +61 Australia OR +64 Newzealand</p>
+                                    </div>   
+                                </div>  
+                               
+                            </div>  
+                        </div>
+                        <footer class="slds-modal__footer">
+                            <div style="text-align:left;margin-right: 133px;display: inline">
+                                <img class="logo" src={zsys} style="width:36px"  /> 
+                                 <a href="https://www.zuddhisystems.com.au" target="_blank">zuddhisystems.com.au</a>
+                            </div>
+                            <div style="text-align:left;margin-right: 133px;display: inline">
+                               
+                            </div>
+                            <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Cancel</button>
+                            <button class="slds-button slds-button_brand" onclick={handleCreateLead} title="OK">OK</button>
+                        </footer>
+                     </div>
+                    </div>
+                </section> 
+              </template> 
+            </div>
+</template>

@@ -1,0 +1,63 @@
+.formcontainer{
+    background-color: white;
+}
+svg{
+    display: none;
+}
+.incidentHeader{
+    display: flex;
+    background: #f2f2f2;
+    padding: 6px 2px;
+}
+
+.incidentheading{
+    color: black;
+    font-weight: bold;
+    font-size: 22px;
+    padding: 6px 2px;
+    font-family: sans-serif;
+    /* text-align: center; */
+}
+.slds-icon.slds-icon_small {
+    width: 16px; /* You can adjust the width and height as needed */
+    height: 16px;
+}
+.newbtn{
+    position: absolute;
+    right: 24px;
+    padding: 4px;
+}
+
+.formcard{
+    /* display: flex; */
+}
+.formcont{
+    width: 100%;
+    padding: 6px;
+}
+.incidentdate{
+    width: 100%;
+    padding: 6px;
+}
+.clientdata{
+    width: 100%;
+    padding: 6px;
+}
+.description{
+    width: 100%;
+    padding: 6px;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even){background-color: #f2f2f2}

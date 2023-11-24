@@ -1,0 +1,30 @@
+.container{
+    margin: 0;
+    padding: 0;
+    width: 50%;
+    padding: 4px;
+    border: 1px solid lightgray;
+    background-color: #f2f6eb;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+}
+.content{
+    margin: 20px;
+    text-align: center;
+    color: black;
+}
+.heading{
+    color: black;
+    font-weight: bold;
+    font-size:xx-large;
+    font-family: initial;
+}
+.websitelink{
+    background-color: #02b680;
+    padding: 10px 23px;
+    color: black;
+}
+.contentpara{
+    color: black;
+}

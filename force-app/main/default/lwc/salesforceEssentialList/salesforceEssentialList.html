@@ -1,0 +1,35 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 05-02-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+
+<template>
+
+  <div class="container" style="border-style: solid;border-color: lightgray"> 
+   
+    <lightning-card title=" Salesforce Essentials Functions" icon-name="utility:salesforce1" class="my-icon">
+      
+        <div style="padding:10px">  
+          <div class="clientdetails">
+            <template for:each={quickActionArray} for:item="action">
+                <div key={action.idval} class="contents">
+                  <h2 slot="title" style="font-size: 24px;font-family: Lato;line-height: 24px; vertical-align: top; padding-left: 52px;" >
+                    {action.name} 
+                  </h2>
+                    <li key={action.idval} style="margin-bottom: 22px;">
+                        <div class="contentlink"> 
+                            <img class="logoimg" src={action.image} alt={action.name} />
+                            <lightning-input class="slds-p-left_xx-large slds-checkbox--faux" data-id={action.index} type="checkbox" label={action.name} value={action.idval} onchange={handleCheckChange} checked={action.isChecked} style="border-color: brown"></lightning-input>
+                        </div>
+                    </li> 
+                </div>
+            </template>
+        </div>
+        </div>
+      </lightning-card>
+    
+  </div> 
+</template>

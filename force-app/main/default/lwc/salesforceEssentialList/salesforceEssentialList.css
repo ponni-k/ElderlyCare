@@ -1,0 +1,43 @@
+/* .clientdetails{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 10px;
+    row-gap: 1em;
+    
+} */
+li{
+    list-style-type: none;
+    padding: 8px;
+    border: 1px solid lightgray;
+    margin: 3px;
+    text-align: center;
+}
+.essentiallabel{
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+.logoimg{
+    margin: 3px auto;
+    width: 270px;
+    height: 210px;
+    padding: 8px;
+    
+}
+.logoimg:hover(){
+    -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.5); 
+}
+.my-icon {
+       --lwc-colorTextIconDefault: royalblue; 
+}
+.slds-checkbox--faux{
+    background: #ffffff!important;
+    border-color: black;
+    cursor:pointer; 
+}
+.slds-checkbox [type=checkbox]:checked+.slds-checkbox_faux:after, .slds-checkbox [type=checkbox]:checked+.slds-checkbox--faux:after, .slds-checkbox [type=checkbox]:checked~.slds-checkbox_faux:after, .slds-checkbox [type=checkbox]:checked~.slds-checkbox--faux:after, .slds-checkbox [type=checkbox]:checked+.slds-checkbox__label .slds-checkbox_faux:after, .slds-checkbox [type=checkbox]:checked+.slds-checkbox__label .slds-checkbox--faux:after{
+    border-bottom: 2px solid rgb(155, 8, 81);
+    border-left: 2px solid rgb(255, 255, 23855);
+}

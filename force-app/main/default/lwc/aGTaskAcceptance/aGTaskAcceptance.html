@@ -1,0 +1,45 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 09-05-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <div if:true={isLoading}>
+        <lightning-spinner alternative-text="Loading..." variant="brand" class="slds-is-fixed">
+        </lightning-spinner>
+    </div>
+    <!-- <lightning-card> -->
+        <div class="checklist">
+            <c-elderly-Care-Checklist onchecklistvaluechange={handleChecklistValues}></c-elderly-Care-Checklist></br>
+            </div> 
+        <div class="slds-align_absolute-center">
+          <div class="functionbutton">
+                <template if:true={isAcceptButton}>
+                    <lightning-button label="Accept" icon-name="action:approval" class="slds-m-left_xx-small" variant="success" onclick={handleAcceptClick}></lightning-button>
+                </template>
+                <template if:true={isClockInButton}>
+                    <lightning-button label="Clock In" icon-name="action:approval" class="slds-m-left_xx-small" variant="brand" onclick={handleClockEvent} ></lightning-button>
+                </template>
+                <template if:true={isClockOutButton}>
+                    <lightning-button label="Clock Out" icon-name="utility:approval" class="slds-m-left_xx-small" variant="brand" onclick={handleClockEvent} ></lightning-button>
+                </template>
+                <template if:true={isDeclineButton}>
+                    <lightning-button label="Decline" icon-name="action:reject" class="slds-m-left_xx-small" variant="destructive"  onclick={handleDeclineEvent} disabled={isdisableDecline}  value={eventId}></lightning-button>
+                </template>
+                <template if:true={isStatusCompleted}>
+                    <div class="completedstatus">
+                        <div title="Start Tie" class="statusleft slds-p-around_medium">
+                            {frmtStartTime}
+                        </div>
+                        <h1 class="slds-p-around_medium">Completed</h1>
+                        <div title="End Time" class="statusright slds-p-around_medium">
+                            {frmtEndTime}
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div> 
+    <!-- </lightning-card> -->
+</template>

@@ -1,0 +1,37 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 08-03-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <div style="margin: 10px;" class="slds-m-around_x-small">
+        <template for:each={feedBackDetails} for:item="acc">
+            <div style="margin: 10px;" key={acc.recId}  >
+                <lightning-card variant="Narrow">
+                    <div class="header">
+                        <div class="left">
+                            <img src={acc.clientimage} alt={acc.clientName} />
+                        </div>
+                        <div class="right">
+                            <h1>{acc.clientName}</h1>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <h1>{acc.Rating} <span style="font-weight:bold;">{acc.serviceName}</span></h1>
+                    </div>
+                    <div class="reviewdon">
+                        <p>Reviewed on :{acc.createddate}</p>
+                    </div>
+                    <div class="comments">
+                        <h1>{acc.comments}</h1>
+                    </div>
+                    <div class="serviceprovided">
+                        <h1>@{acc.carerName}</h1>
+                    </div>
+                </lightning-card>
+            </div>
+        </template>
+    </div>
+</template>

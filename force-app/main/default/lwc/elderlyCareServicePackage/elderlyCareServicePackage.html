@@ -1,0 +1,86 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 11-07-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card  title="Service Package">
+        <div class="container slds-m-around_small">
+            <div class="slds-p-around_xx-small">
+                <lightning-button-group>
+                    <!-- <lightning-button label="Add" icon-name="utility:add" onclick={handleselecteServices}></lightning-button> -->
+                    <lightning-button label="Selected Services" icon-name="action:preview" onclick={handleViewServices}></lightning-button>
+                    <lightning-button label="Save" icon-name="utility:add" onclick={handleSaveServices}></lightning-button>
+                </lightning-button-group>
+                
+            </div>
+
+            <!-- <template if:true={isAddServices}> -->
+
+                <lightning-datatable  data={servicePackage} columns={columns} key-field="Id" onrowselection={handleRowSelection}></lightning-datatable>
+                <c-pagination-incident-report records={servicePackage} record-size="6" onupdate={updateIncidentHandler}></c-pagination-incident-report>
+
+            <!-- </template> -->
+
+            <template if:true={isModalOpen}>
+                <!-- Modal/Popup Box LWC starts here -->
+                <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                    <div class="slds-modal__container">
+                        <!-- Modal/Popup Box LWC header here -->
+                        <header class="slds-modal__header">
+                            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                                <lightning-icon icon-name="utility:close"
+                                    alternative-text="close"
+                                    variant="inverse"
+                                    size="small" ></lightning-icon>
+                                <span class="slds-assistive-text">Close</span>
+                            </button>
+                            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+                               {clientName} Selected Services</h2> 
+                        </header>
+                        <!-- Modal/Popup Box LWC body starts here -->
+                        <template if:true={clientServiceName}>
+                        <div style="padding: 4px 8px;" class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                         <ul class="checklist">
+                            <template for:each={clientServiceName} for:item="valueList">
+                           <li key={valueList}>{valueList}</li>
+                          </template>
+                        </ul>
+                     </div>
+                  </template>
+                      <template if:false={clientServiceName}>
+                        <div class="slds-modal__content slds-p-around_medium ">
+                        <p> There is no services. Please select your service!!</p>
+                      </div>
+                      </template>
+                      <footer class="slds-modal__footer">
+                        <button class="slds-button slds-button_brand" onclick={closeModal} title="OK">OK</button>
+                    </footer>
+                      </div>
+                      </section>
+                      <div class="slds-backdrop slds-backdrop_open"></div>
+                      </template>
+            
+            <!-- <div class="slds-p-around_xx-small">
+                <lightning-combobox name="Select Package" label="Status" value={servicePackageLevel} placeholder="Select Package Level" options={packageLevel} onchange={handleChange} ></lightning-combobox>
+            </div>
+            <div class="slds-p-around_xx-small">
+                <lightning-dual-listbox
+                    class="slds-box"
+                    name="OppCons"
+                    label="Select/Remove Contacts"
+                    source-label="Available Contact(s)"
+                    selected-label="Selected Contact(s)"
+                    options={packageLevel}
+                    value={selectedCons}
+                    onchange={handleChange}>
+                </lightning-dual-listbox>
+            </div>
+            <div class="slds-p-around_xx-small">
+                <lightning-combobox name="progress" label="Status" value={value} placeholder="Select Progress" options={options} onchange={handleChange} ></lightning-combobox>
+            </div> -->
+        </div>
+    </lightning-card>
+</template>

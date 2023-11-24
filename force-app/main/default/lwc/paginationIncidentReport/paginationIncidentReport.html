@@ -1,0 +1,27 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 11-07-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-layout>
+        <lightning-layout-item>
+            <lightning-button 
+            icon-name="utility:chevronleft"
+            onclick={previousHandler}
+            disabled={disablePrevious}></lightning-button>
+        </lightning-layout-item>
+        <lightning-layout-item flexibility="grow">
+            <p style="color: black;margin:5px;font-weight:bold;" class="slds-text-align_center">Displaying <br>{currentPage} of {totalPage} Page</p>
+        </lightning-layout-item>
+        <lightning-layout-item>
+            <lightning-button
+            icon-name="utility:chevronright"
+            icon-position="right"
+            onclick={nextHandler}
+            disabled={disableNext}></lightning-button>
+        </lightning-layout-item>
+    </lightning-layout>   
+</template>

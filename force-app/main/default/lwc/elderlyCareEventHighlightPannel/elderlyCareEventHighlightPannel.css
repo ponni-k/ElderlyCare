@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+ul{
+    column-count: 8;
+    list-style-type: none;
+    column-gap: 20px;
+   
+}
+.slds-card-header{
+    background-color: rgb(131, 189, 220);
+    height: 1cm;
+    width: 100%;
+}
+.clientprofile{
+    border-radius: 30%;
+}
+
+.myhighlightComponent {
+    background-color: #ed9696;
+    width: 100%;
+  }
+  li{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  .main{
+    display: flex;
+    /* justify-content: space-between; */
+    padding-left: 10px;
+  }
+  .mainheading{
+    margin-top: 15px;
+    margin-left: 5px;
+    color: black;
+    /* font-weight: bold; */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 13px;
+  }
+  .heading{
+    padding: 3px;
+  }

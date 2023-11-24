@@ -1,0 +1,86 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 10-17-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <template if:false={admin}>
+    <div class="myhighlightComponent">
+        <lightning-card icon-name="custom:custom15" class="myhighlightComponent">
+           <header slot="title" >Client's Detail </header>
+           <div class="main">
+               <img src={accImage} alt={Name} class="clientprofile" height="40px" width="140px"/>
+               <div class="mainheading">
+                  <h1 class="heading">Name  :{Name}</h1>
+                  <h1 class="heading">Age   : {age}</h1>
+                  <!-- <h1 class="heading">DOB :{dob}</h1> -->
+                  <h1 class="heading">Gender :{gender}</h1>
+                  <h1 class="heading">Phone :{phone}</h1>
+                  <h1 class="heading">Street :{Street}</h1>
+                  <h1 class="heading">City :{City}</h1>
+                  <h1 class="heading">State :{State}</h1>
+               </div>
+           </div>
+        </lightning-card>
+        <!-- <div class="sidenav mySidenav">
+            <lightning-button class="about" label="Contact" variant="brand" icon-name="standard:contact" alternative-text="contacts" onclick={handleSideButton}></lightning-button>
+            <lightning-button class="blog" label="Service Items" variant="brand" icon-name="standard:facility_bed" alternative-text="Serviceitems" onclick={handleSideButton}></lightning-button>
+            <lightning-button label="Time Sheet" variant="brand" class="projects" icon-name="standard:timesheet_entry" alternative-text="Timesheet" onclick={handleSideButton}></lightning-button>
+            <lightning-button label="Incident" variant="brand" class="contact" icon-name="standard:incident" alternative-text="incidents" onclick={handleSideButton}></lightning-button> -->
+            <!-- <lightning-icon class="about" icon-name="standard:contact" alternative-text="contacts" onclick={handleNavrBar}></lightning-icon>
+            <lightning-icon class="blog" icon-name="standard:facility_bed" alternative-text="Service Items" onclick={handleNavrBar}></lightning-icon>
+            <lightning-icon class="projects" icon-name="standard:timesheet_entry" alternative-text="Time Sheet" onclick={handleNavrBar}></lightning-icon>
+            <lightning-icon class="contact" icon-name="standard:incident" alternative-text="Incidents" onclick={handleNavrBar}></lightning-icon> -->
+
+            <!-- <a href="#" class="about">Contacts</a> -->
+            <!-- <a href="#" class="blog">Service Items</a>
+            <a href="#" class="projects">Time Sheet</a>
+            <a href="#" class="contact">Incidents</a> -->
+        <!-- </div> -->
+   </div>
+   </template>
+   
+   <template if:true={admin}>
+
+   <lightning-card>
+   <div class="container1">
+       <div class="section1" style="border-right: 1px solid #1f1717;">
+           <h2><b>Client Details</b></h2><br>
+           <ul>
+               <li>&emsp;  <img src={accImage} alt={Name} class="clientprofile"  width="80px"/>
+               </li>
+               <li> Name   : {Name}</li>
+               <li> Phone  : {phone}</li>
+               <li> Gender : {gender}</li>
+               <li> Street : {Street}</li>
+               <li> City   :   {City}</li>
+               <li> State  :  {State}</li>
+               <li>Country :    {Country}</li>
+               <li> DOB    : {dob}</li>
+               <li> Age    : {age}</li>
+               <li> Relation : {reports}</li>
+            </ul>
+       </div>
+       <div class="section1">
+           <div class="package-level">
+            <h2><b style="color: cornflowerblue;">Home Care Package :</b><b> {packagelevel}</b></h2>
+            <h2><b style="color: cornflowerblue;">&emsp;Budget :</b><b> ${budget}</b></h2>
+           </div><br>
+           <div class="h2-container"> 
+            <h2><b>Selected Services</b></h2>
+            </div>
+            <ul class="selectedItemUl">
+                <template for:each={selectedItem} for:item="service">
+                    <li  style="margin-left: 47px;"  key={service.Id}>{service.Name}</li>
+                </template>
+            </ul><br>
+            <div class="totalprice">
+                <h2><b style="color: cornflowerblue;">Services delivered :</b><b> ${total}</b></h2>
+            </div>
+        </div>
+   </div>
+</lightning-card>
+</template>
+</template>

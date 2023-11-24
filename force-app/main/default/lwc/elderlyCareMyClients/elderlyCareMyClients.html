@@ -1,0 +1,51 @@
+<!--
+@description       : 
+@author            : ChangeMeIn@UserSettingsUnder.SFDoc
+@group             : 
+@last modified on  : 09-29-2023
+@last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+<div class="card-container">
+    <div class="myClientsHeader">
+        <h1 class="myClientsHeading">My Clients</h1>
+        <div class="slds-clearfix">
+            <div class="newbtn slds-float_right">
+                <lightning-icon style="cursor: pointer;" icon-name="action:new" alternative-text="New Client" onclick={newClientForm} size="small"></lightning-icon>
+            </div>
+        </div>
+        </div>
+    <div class="slds-p-around_medium lgc-bg">
+        
+        <div class="client-card">
+            <div class="card-header"></div>
+            
+            <template lwc:if={clientList}>
+                <template for:each={clientList} for:item="individualClient">
+                    <ul class="list" key={individualClient.id}>
+                        <div class="main">
+                         <img src={individualClient.clientImage} alt={Name} class="clientprofile" />
+                   
+                    <div class="mainheading">
+                    <li style="display: flex;" class="slds-item">
+                        <h1 class="label"> Name</h1><h1 class="value">: {individualClient.clientName}</h1></li>
+                         <li style="display: flex;" class="slds-item" >
+                            <h1 class="label">City</h1> <h1 class="value">: {individualClient.billingCity}</h1></li> 
+                            <li style="display: flex;" class="slds-item">
+                                <h1 class="label"> State</h1>  <h1 class="value">: {individualClient.billingState}</h1> </li>
+                               <li style="display: flex;" class="slds-item" >
+                                <h1 class="label">Phone</h1> <h1 class="value"></h1>: {individualClient.phone}</li>
+                                 </div>
+                            </div>
+                                    <div class="submitbutton">
+                                        <lightning-button  variant="brand" title={individualClient.Id} label="View Client" onclick={handleClient} ></lightning-button> 
+                                    </div>
+                            </ul>
+                </template>
+            
+            </template>
+        </div>
+    </div>
+</div>
+
+</template>

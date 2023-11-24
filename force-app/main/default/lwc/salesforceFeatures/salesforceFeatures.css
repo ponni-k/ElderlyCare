@@ -1,0 +1,64 @@
+img{
+    margin-top: -7%;
+    width: 281px;
+   
+ }  
+ .contentlink{
+    margin: 1px;
+    background-color: lightgray;
+}
+.content{
+    padding: 4px;
+    color: black;
+    font-weight: bold;
+     
+} 
+.my-icon {
+   
+    --lwc-colorTextIconDefault: royalblue;
+} 
+.yoytubelogo{
+    width: 36px; 
+    margin-left: 258px;
+    margin-top: 3px;
+}
+.slds-checkbox--faux{
+    background: #ffffff!important;
+    border-color: black;
+    cursor:pointer; 
+}
+.slds-checkbox [type=checkbox]:checked+.slds-checkbox_faux:after, .slds-checkbox [type=checkbox]:checked+.slds-checkbox--faux:after, .slds-checkbox [type=checkbox]:checked~.slds-checkbox_faux:after, .slds-checkbox [type=checkbox]:checked~.slds-checkbox--faux:after, .slds-checkbox [type=checkbox]:checked+.slds-checkbox__label .slds-checkbox_faux:after, .slds-checkbox [type=checkbox]:checked+.slds-checkbox__label .slds-checkbox--faux:after{
+    border-bottom: 2px solid rgb(155, 8, 81);
+    border-left: 2px solid rgb(255, 255, 23855);
+}
+.features{
+    width: 87px; 
+    margin-left: 221px;
+    margin-top: -164px;
+}
+
+input[type=checkbox] {
+	-moz-appearance:none;
+	-webkit-appearance:none;
+	-o-appearance:none;
+	outline: none;
+	content: none;	
+}
+
+input[type=checkbox]:before {
+	font-family: "FontAwesome";
+    content: "\f00c";
+    font-size: 15px;
+    color: transparent !important;
+    background: #fef2e0;
+    display: block;
+    width: 15px;
+    height: 15px;
+    border: 1px solid black;
+    margin-right: 7px;
+}
+
+input[type=checkbox]:checked:before {
+
+	color: black !important;
+}

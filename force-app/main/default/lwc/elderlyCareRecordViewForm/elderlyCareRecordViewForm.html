@@ -1,0 +1,22 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-06-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <p>{activeSectionsMessage}</p>
+    <lightning-card>
+        <lightning-accordion allow-multiple-sections-open
+                         onsectiontoggle={handleSectionToggle}
+                         active-section-name={activeSections}>
+            <lightning-accordion-section name="A" label="Calender Details">
+                <lightning-input name="enter-search" label="Assigned To" type="search" value={ownerName} disabled></lightning-input>
+                owner name:{ownerName}
+            </lightning-accordion-section>
+        </lightning-accordion>
+    </lightning-card>
+
+    
+</template>

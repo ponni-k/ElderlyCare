@@ -1,0 +1,71 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 09-29-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <template if:false={hasSpeechRecognitionApi}>
+      <div class="not-supported-message">
+        <h1>Web Speech API is not supported for this org or this browser.</h1>
+        <p>
+          ・Make sure that
+          <a
+            href="https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.security_lwsec_enable"
+            target="_blank"
+            >Lightning Web Security</a
+          >
+          is enabled in this org
+        </p>
+        <p>
+          ・Make sure that you use one of
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition#browser_compatibility"
+            target="_blank"
+            >the compatible browswers</a
+          >.
+        </p>
+      </div>
+    </template>
+    <template if:true={hasSpeechRecognitionApi}>
+      <div class="input-wrapper">
+        <div class="textarea-wrapper">
+          <template if:true={inputLabel}>
+            <label class="slds-form-element__label">{inputLabel}</label>
+          </template>
+          <div class="slds-form-element__control slds-grow textarea-container">
+            <!-- <lightning-input-rich-text class="textarea" type="text" label="Services" onkeyup={handleTextAreaChange}></lightning-input-rich-text> -->
+            <textarea class="slds-textarea" placeholder="Speak or type here..." onkeyup={handleTextAreaChange}></textarea>
+            <div class="speechvalue" onkeyup={handleTextAreaChange}>
+                <!-- Speech Value ::: {transcript} -->
+                <div class="buttonstyle slds-m-left_medium">
+                  <template if:true={recognizing}>
+                    <lightning-button-icon
+                      icon-name="utility:stop"
+                      variant="destructive"
+                      class="stopbutton"
+                      onclick={startRecognition}
+                    ></lightning-button-icon>
+                  </template>
+                  
+                  <template if:false={recognizing}>
+                    <lightning-button-icon
+                      icon-name="utility:unmuted"
+                      variant="brand"
+                      onclick={startRecognition}
+                    ></lightning-button-icon>
+                  </template>
+                  
+                  
+                  <!-- <template if:true={recognizing}>
+                    <div>{contentTranslation.recognizing}</div>
+                  </template> -->
+                </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </template>
+  </template>

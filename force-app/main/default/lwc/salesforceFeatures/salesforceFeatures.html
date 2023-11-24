@@ -1,0 +1,82 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 05-03-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+      <div class="container" style="border-style: solid;border-color: lightgray">  
+        <lightning-card title="Salesforce Essential Features" icon-name="utility:salesforce1" class="my-icon">
+        <div style="padding:41px">
+          <lightning-layout multiple-rows horizontal-align="stretch"  class="slds-grid slds-wrap slds-p-around_large" >
+            <template if:true={openyellowslip}>
+                <div>
+                  <img class="DIY" src={sfdcessentials}  /> 
+                </div>
+             
+            </template>
+            <template if:false={openyellowslip}>
+              <div>
+                <img class="features" src={sfdcfeatures}  /> 
+              </div>
+           
+          </template>
+            
+            <template for:each={featuresarr} for:item="action"> 
+               
+                 <div key={action.idval} class="custom-box">
+                    <lightning-layout-item size="12" small-device-size="6" medium-device-size="6" large-device-size="6" padding="around-small ">
+                        <h2 slot="title" style="font-size:16px;font-family: fantasy;line-height: 53px; color: royalblue; padding-left: 103px; vertical-align: top" >
+                            {action.name}   </h2>
+                          <div class="slds-box" style="margin-top:-71px; width:312px;margin-bottom:28px;margin-left:-26px" >
+                            <lightning-card>
+                                <img class="logoimg" src={action.image} alt={action.name} />
+                                <div class="slds-p-bottom_medium"></div>
+                                <lightning-input class="slds-p-left_xx-large slds-checkbox--faux" data-id={action.index} type="checkbox" label={action.name} value={action.idval} onchange={handleSelectFeatures} checked={action.isChecked} style="padding-left: 70px;font-size:12.4px;font-family:crusive;font-weight:bold;color:royalblue"></lightning-input>
+                                <div class="slds-col" data-id={action.idval}  value={action.idval} onclick={moreInfo}> 
+                                   <a ><img class="yoytubelogo" src={youtube} value={action.idval} alt={action.name} /> </a>
+                                </div>
+                            </lightning-card>  
+
+                            </div>
+                        </lightning-layout-item> 
+                    </div>
+                </template> 
+          </lightning-layout>
+          </div>
+        </lightning-card>
+    </div>
+      <!-- Modal to view the game images and selection *************************************************************************-->
+      <template if:true={openvideo}>
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-label="Meaningful description of the modal content" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closevideo}>
+                    <lightning-icon icon-name="utility:close"
+                        alternative-text="close"
+                        variant="inverse"
+                        size="small" ></lightning-icon>
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+              <div class="slds-modal__content slds-p-around_medium slds-modal__content_headless" id="modal-content-id-1">
+                
+                     <div class="slds-grid slds-grid_align-center"> 
+                        <iframe src={selectVideo} width="1000px" height="400px"  style="border:none" frameborder="0" allow  allowfullscreen=true></iframe>
+                      </div>
+                    </div>  
+                  </div>  
+                    <footer class="slds-modal__footer">
+                        <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">{selecteFeatureslabel}</h2>
+                      <lightning-button variant="brand"  
+                          label="Cancel Video" 
+                          title="Cancel" 
+                          class="slds-m-left_x-small"
+                          onclick={closevideo}></lightning-button> 
+                      
+                    </footer>  
+                  
+             </div>
+         </section>
+          <div class="slds-backdrop slds-backdrop_open"></div>             
+       </template>
+</template>

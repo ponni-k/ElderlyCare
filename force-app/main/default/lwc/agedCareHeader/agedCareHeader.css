@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+}
+
+.section {
+    flex: 1;
+    padding: 16px;
+    box-sizing: border-box;
+}
+ul{
+    column-count: 4;
+    list-style-type: style type; 
+    column-gap: 20px;
+   
+}
+.clientprofile{
+    border-radius: 50%;
+    
+ }

@@ -1,0 +1,15 @@
+.slds-modal_prompt[lightning-interactiveDialogBase_interactiveDialogBase] .slds-modal__content[lightning-interactiveDialogBase_interactiveDialogBase], .slds-modal--prompt[lightning-interactiveDialogBase_interactiveDialogBase] .slds-modal__content[lightning-interactiveDialogBase_interactiveDialogBase] {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-size: 18px;
+    text-align: center;
+    font-family: math;
+}
+.completedstatus{
+    display: flex;
+    background-color: lightgrey;
+    color: black;
+    width: fit-content;
+    border-radius: 35px;
+    font-size: 12px;
+}

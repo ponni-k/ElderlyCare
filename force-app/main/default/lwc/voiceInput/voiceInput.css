@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.textarea {
+    width: 70%;
+    height: 100px;
+    resize: none;
+    padding: 10px;
+}
+
+.microphone-button {
+    background-color: #0070d2;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.microphone-button:hover {
+    background-color: #0055a2;
+}

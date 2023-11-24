@@ -1,0 +1,38 @@
+.header{
+    display: flex;
+}
+.left{
+    width: 45px;
+    margin: 10px;
+}
+img {
+    border-radius: 50%;
+}
+.right{
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+    margin-top: 16px;
+}
+.rating{
+    padding: 5px;
+    font-size: large;
+    font-family: math;
+    color: firebrick;
+}
+.reviewdon{
+    font-size: 18px;
+    font-family:serif;
+    font-family: ui-monospace;
+    margin: 5px;
+}
+.serviceprovided{
+    font-family: cursive;
+    margin: 5px;
+}
+.comments{
+    padding: 10px;
+}
+.slds-card {
+    margin: 10px;
+}

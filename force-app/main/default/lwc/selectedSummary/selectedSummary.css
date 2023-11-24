@@ -1,0 +1,54 @@
+.summary{
+  display: flex;
+  height: fit-content;
+  
+}
+.summaryHeading{
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+  width: 120px;
+}
+.SummaryValue{
+  font-size: 12px;
+  color: black;
+}
+
+.summaryContent{
+  border: 1px solid lightgray;
+  margin: 5px auto;
+  padding: 10px 6px;
+}
+.norecords{
+  font-size: 17px;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+} 
+
+.selectedSummary{
+  background-color: white;
+}
+.datatablebutton{
+  margin-top: 5px;
+  display: flex;
+}
+.btn{
+  margin: 2px;
+}
+.modalBodySpinner{
+  position: relative;
+}
+.my-icon {
+   
+  --lwc-colorTextIconDefault: royalblue; 
+}
+.log0{
+  width: 179px;
+
+}
+.handpoint{
+  width: 43px;
+  margin-left:3px; 
+ 
+}

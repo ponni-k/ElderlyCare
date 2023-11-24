@@ -1,0 +1,93 @@
+.feedbackcontainer{
+    display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* grid-template-rows: repeat(3, 100px); */
+    /* height: 100vh;
+    overflow: scroll */
+}
+.client-card {
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 10px;
+}
+.cardcontainer{
+    display: flex;
+    background-color: rgb(22 50 92);
+    justify-content:space-between;
+}
+.cardleft{
+  
+    font-weight: bold;
+    font-size:16px;
+}
+.left{
+    font-weight: bold;
+    font-size:16px;
+}
+
+.cardright{
+    width: 74%;
+    font-size: 16px;
+
+}
+.serviceHeading{
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+}
+.newbtn{
+    position: absolute;
+    right: 24px;
+    padding: 4px;
+}
+.myClientsHeader{
+    display: flex;
+    background: #f2f2f2;
+    padding: 6px 2px;
+}
+.slds-item{
+    padding: 8px;
+    color: black;
+}
+.myClientsHeading{
+    color: black;
+    font-weight: bold;
+    font-size: 22px;
+    padding: 6px 2px;
+    font-family: sans-serif;
+    /* text-align: center; */
+}
+.label{
+    padding:2px;
+    font-weight: bold;
+    font-size:12px;
+  }
+  .value{
+    padding:1px;
+    font-size:12px;
+  }
+.list{
+    margin: 4px;
+    /* display: flex; */
+    /* grid-template-columns: auto auto auto; */
+    background-color: rgb(245, 245, 246);
+    padding: 10px;
+}
+.main{
+    display: flex;
+    padding-left: 2px;
+  }
+  .mainheading{
+    margin-top: 10px;
+    margin-left: 1px;
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 13px;
+  }
+  .clientprofile{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-top: 40px;
+    
+ }

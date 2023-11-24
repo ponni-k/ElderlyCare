@@ -1,0 +1,62 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 08-31-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+        <div class="retriveProgress">
+            <lightning-card title="Duty Notes" icon-name="action:new_note">
+                <div if:true={isLoading} class="slds-align_absolute-center" style="position:relative;margin-top: 30px;">
+                    <lightning-spinner variant="base" size="medium"></lightning-spinner>
+                </div>
+                <section class="cards-wrapper">
+                    <div class="card-grid-space">
+                        <a class="card" style="--bg-img: url('https://www.medicaltranscriptionservicecompany.com/wp-content/uploads/2020/12/guidelines-and-tips-to-write-good-progress-notes.jpg')">
+                            <!-- <img class="card" src={progressNotesBG} alt="progressNotesBG"> -->
+                            <div>
+                            <h1>Client Name:{clientNameDate}</h1>
+                            <h1>{serviceNameDate}</h1>
+                            <p>{serviceDescriptionData}</p>
+                            <p>service by @ {carerNameDate} - {timeSheetNameData}</p>
+                            <div class="date">Progress Date :{dutyDate}</div>
+                            <div class="tags">
+                            <div class="tag">{statusData}</div>
+                            </div>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+                   
+                <!-- @@@@@@@@ENd@@@@@@@-->
+                <div class="uploadimage slds-m-around_xx-small">
+                    <template if:true={isStartVideoButton}>
+                        <lightning-button-icon label=""   variant="brand" icon-name="action:add_photo_video" class="slds-m-left_xx-small slds-icon slds-icon_large" onclick={initCamera}></lightning-button-icon>
+                    </template>
+                    <template if:true={isCaptureButton}>
+                        <lightning-button label="Capture & Save" icon-name="action:upload" class="slds-m-left_xx-small slds-icon slds-icon_large" onclick={captureImage}></lightning-button>
+                    </template>
+                    <!-- <lightning-button label="Stop Video" class="slds-m-left_xx-small" onclick={stopCamera}></lightning-button> -->
+                    <template if:true={isStopButton}>
+                        <lightning-button-icon title="Close Capture" label=""   variant="brand" icon-name="action:close" class="slds-m-left_xx-small slds-icon slds-icon_large" onclick={stopCamera}></lightning-button-icon>
+                    </template>
+                    <div class="slds-m-horizontal_medium">
+                        <c-web-speech-api-input min-height="200" input-label="Voice Recognition" show-toast-on-error="true" language={language} onchangevalue={handleInputChange}></c-web-speech-api-input>
+                        <div>
+                            <p>Input value : {value}</p>
+                        </div>
+                    </div>
+                </div>
+            </lightning-card>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col">
+                    <video class="videoElement slds-m-around_xx-small" style="width:70%;" autoplay></video>
+                    <canvas class="slds-hide canvas"></canvas>
+                </div>
+                <div class="slds-col slds-m-around_xx-small" style="width:70%;">
+                    <img src="" class="slds-hide imageElement" alt="captured image"/>
+                </div>
+            </div>
+        </div>
+</template>

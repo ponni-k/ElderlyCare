@@ -1,0 +1,104 @@
+<template>
+    <div class="card-container">
+        <div>
+            <h1 class="clientheading"><center>New Client Form</center></h1>
+        </div>
+        <div class="profilepicture-card">
+            <lightning-card class="slds-card profile-card" title="Profile picture Upload" icon-name="custom:custom14">
+                <div class="slds-var-m-around_medium">
+                    <lightning-input type="file" 
+                    accept=".png, .jpg, .jpeg"
+                    data-id="dynamicInput"
+                    label={originalname}
+                    onchange={openfileUpload} ></lightning-input>
+                </div>
+                <lightning-button variant="brand" label="submit" title="Submit" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+               
+            </lightning-card> 
+        </div>
+        <div class="client-card">
+<div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+    <div class="formcontainer">
+        <div class="header">
+            <h3>Client Information</h3>
+        </div>
+        <div class="formcard">
+            <div class="formcont">
+                <lightning-input type="text" label="Client Name" onchange={handleClient}></lightning-input>
+            </div>
+            <div class="formcont">
+                <lightning-input type="email" label="Email" onchange={handleEmail}></lightning-input>
+            </div>
+            <div class="formcont">
+                <lightning-input type="number" label="Phone" name="phone3" onchange={handlePhone}></lightning-input> 
+            </div>
+            <div class="formcont">
+                <lightning-input type="number" step=".01" formatter="currency" label="Annual Budget" onchange={handleAnnualBudget}></lightning-input>
+            </div>
+            <div class="formcont">
+                <lightning-input type="date" label="DOB" onchange={handleDOB}></lightning-input>
+            </div>
+            <div class="formcont">
+                <lightning-combobox name="gender" label="Gender" value={value} placeholder="Select Gender" options={TypeofGender} onchange={handleGender} ></lightning-combobox>
+             </div>
+            
+        </div><br>
+        <div class="header">
+            <h3>Address Information</h3>
+        </div>
+        <div class="formcard">
+            <div class="formcont">
+                <lightning-textarea label="Street" 
+                         name="longTextAreaField" 
+                         value={longTextAreaValue} 
+                         onchange={handleStreet}>
+                </lightning-textarea>
+            </div>
+            <div class="formcont">
+                <lightning-input type="text" label="City" onchange={handleCity}></lightning-input>
+            </div>
+            <div class="formcont">
+                <lightning-input type="text" label="State/Province" onchange={handleState}></lightning-input>
+            </div>
+            <div class="formcont">
+                <lightning-input type="number" label="Zip/Postal Code" onchange={handleZipCode}></lightning-input>
+            </div>
+            <div class="formcont">
+                <lightning-input type="text" label="Country" onchange={handleBillingCountry}></lightning-input>
+            </div>
+        </div><br>
+        <div class="formcard">
+            <div class="header">
+                <h3>Additional Information</h3>
+            </div> 
+            <div class="formcont">
+                <lightning-combobox name="Country of Birth" label="Country of Birth" value={value} placeholder="Select Country" options={TypeofCountry} onchange={handleCountry} ></lightning-combobox>
+            </div>
+            <div class="formcont">
+                <lightning-combobox name="Language Preference" label="Language Preference" value={value} placeholder="Select Language" options={TypeofLanguage} onchange={handleLanguage} ></lightning-combobox>
+            </div>
+        </div>
+        <!-- <div class="formcard">
+            <div class="header">
+                <h3>Client Place Risk Alerts</h3>
+            </div> 
+            <div class="formcont">
+                 <lightning-input type="checkbox" label="Resident" name="input1"></lightning-input>
+            </div>
+            <div class="formcont">
+                <lightning-textarea name="resident" label="Risk Value for Resident" ></lightning-textarea>
+            </div>
+        </div> -->
+            
+     <br>
+     <!-- <footer class="slds-modal__footer"> -->
+        <div class="centered-container">
+        <button class="slds-button slds-button_neutral" onclick={cancel} title="Cancel">Cancel</button>
+        <button class="slds-button slds-button_brand" onclick={saveClient} title="Save">Save</button>
+    </div>
+     <!-- </footer> -->
+    </div>
+</div>
+</div>
+</div>
+</template>

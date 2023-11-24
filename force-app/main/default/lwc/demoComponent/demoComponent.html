@@ -1,0 +1,22 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-26-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-combobox
+    label="Services"
+    value={controllingValue}
+    options={selectedOptions}
+    onchange={handleControllingValueChange}
+  ></lightning-combobox>
+
+  <lightning-combobox
+    label="Dependent Picklist"
+    value={dependentValue}
+    options={dependentOptions}
+    onchange={handleDependentValueChange}
+  ></lightning-combobox>
+</template>

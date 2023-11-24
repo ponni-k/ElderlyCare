@@ -1,0 +1,28 @@
+.header {
+    background-color: #979b9e; 
+    color: hsl(0, 8%, 5%); 
+    padding: 10px; 
+}
+.client-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+}
+.profilepicture-card{
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+}
+.clientheading{
+    color: black;
+    font-weight: bold;
+    font-size: 22px;
+    padding: 6px 2px;
+    font-family: sans-serif;
+    /* text-align: center; */
+}
+.centered-container {
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+}
